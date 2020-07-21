@@ -1,11 +1,13 @@
 package com.example.sergiobelda.navigationsharedelements.ui.singleitemexample
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -31,11 +33,18 @@ class ParentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardView.setOnClickListener{
-            val extras = FragmentNavigatorExtras(
-                imageView to "imageView"
+        cardView.setOnClickListener {
+            val openIntent = Intent(requireActivity(), DetailActivity::class.java)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                requireActivity(),
+                imageView,
+                "imageView"
             )
-            findNavController().navigate(R.id.detailAction, null, null, extras)
+            startActivity(openIntent, options.toBundle())
+//            val extras = FragmentNavigatorExtras(
+//                imageView to "imageView"
+//            )
+//            findNavController().navigate(R.id.detailAction, null, null, extras)
         }
         Glide.with(context!!).load(IMAGE_URI).centerCrop().into(imageView)
     }

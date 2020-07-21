@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 
 import com.example.sergiobelda.navigationsharedelements.R
+import com.example.sergiobelda.navigationsharedelements.ui.singleitemexample.ParentFragment
 import kotlinx.android.synthetic.main.fragment_start.*
 
 /**
@@ -26,7 +27,8 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         single_item_button.setOnClickListener {
-            findNavController().navigate(R.id.navToSingleItemExample)
+            ParentFragment().show(childFragmentManager, "taaaaag")
+//            findNavController().navigate(R.id.navToSingleItemExample)
         }
         recyclerview_button.setOnClickListener {
             findNavController().navigate(R.id.navToRecyclerView)

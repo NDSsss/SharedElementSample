@@ -8,17 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.sergiobelda.navigationsharedelements.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_parent.*
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class ParentFragment : Fragment() {
+class ParentFragment : BottomSheetDialogFragment() {
     companion object {
         const val IMAGE_URI = "https://i.scdn.co/image/8d5eabf813797aa39f6e8186f702a1998d12fe40"
     }
